@@ -3,7 +3,8 @@
  Criar a estrutura de uma Pokedéx.
 
 ## Especificações:
- A Pokedéx deve registra Pokémons com suas características, como não se sabe quantos serão registrados é necessário fazer alocação dinâmica dos dados.
+ A Pokedéx deve registra Pokémons com suas características, como não se sabe quantos serão registrados é necessário fazer alocação dinâmica dos dados ou colocar um limite de Pokémons registráveis.
+ > Para facilitar o desenvolvimento irei utizar um vetor de 151 Pokemóns (primeira geração).
 
  ### Estruturas:
  ##### Estrutura Principal:
