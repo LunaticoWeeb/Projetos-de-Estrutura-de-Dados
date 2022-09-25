@@ -18,19 +18,49 @@ struct pokemon_t{
     char type_secondary[20];
     struct attribute_t attribute;
     struct attack_t attack;
-} pokemon;
+};
 
-void registrate(struct pokemon_t pokemon);
-void new_attack(int index_pokemon, int index_atk, struct attack_t attack);
-void print_pokemon(int index_pokemon);
-void print_atk(int index_pokemon, int index_atk);
+void registrate();
+void new_attack();
+void print_pokemon();
+void print_atk();
 
 #define CLOSE 0
 
 int main(){
+    struct pokemon_t  *pointerdex, pokedex[151];
+    //Pokédex possui 151 Pokémons
+    //Pointerdex navega pelos Pokémons resgitrados
     int key;
     do {
-        scanf("%d", key);
+        scanf("%d", &key);
+        switch (key){
+            case 1:
+                registrate();
+                break;
+            case 2:
+                new_attack();
+                break;
+            case 3:
+                print_pokemon();
+                break;
+            case 4:
+                print_atk();
+                break;
+            case 0:
+                break;
+            default:
+                printf("Digite novamente.\n");
+                break;
+        }
     } while (key != CLOSE);
     return 0;
 }
+
+void registrate(){};
+
+void print_pokemon(){};
+
+void new_attack(){};
+
+void print_atk(){};
