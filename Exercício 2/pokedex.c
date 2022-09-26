@@ -1,7 +1,3 @@
-/*
-bug: não está registrando os Pokémons corretamente, só funcionam com 1.
-*/
-
 #include <stdio.h>
 #include <string.h>
 
@@ -116,12 +112,6 @@ void new_attack(struct pokemon_t *pkdex){
     scanf("%d", &pkdex_index);
     scanf("%d", &atk_index);
 
-    //acessa Pokémon e ataque
-    struct pokemon_t pkm;
-    struct attack_t atk;
-    pkm = pkdex[pkdex_index];
-    atk = pkm.attack[atk_index];
-
     //recebe dados do ataque
     char name_atk[20], class_atk;
     int power_atk;
@@ -129,13 +119,13 @@ void new_attack(struct pokemon_t *pkdex){
     scanf("%s", name_atk);
     scanf("%d", &power_atk);
     scanf("%f", &accuracy_atk);
-    scanf("%c", &class_atk);
+    scanf(" %c", &class_atk);
 
     //registra ataque
-    strcpy(atk.name, name_atk);
-    atk.power = power_atk;
-    atk.accuracy = accuracy_atk;
-    atk.class = class_atk;
+    strcpy(pkdex[pkdex_index].attack[atk_index].name, name_atk);
+    pkdex[pkdex_index].attack[atk_index].power = power_atk;
+    pkdex[pkdex_index].attack[atk_index].accuracy = accuracy_atk;
+    pkdex[pkdex_index].attack[atk_index].class = class_atk;
 };
 
 void print_atk(struct pokemon_t *pkdex){
@@ -144,15 +134,9 @@ void print_atk(struct pokemon_t *pkdex){
     scanf("%d", &pkdex_index);
     scanf("%d", &atk_index);
 
-    //acessa dados do Pokémon
-    struct pokemon_t pkm;
-    struct attack_t atk;
-    pkm = pkdex[pkdex_index];
-    atk = pkm.attack[atk_index];
-
     //imprime dados do Pokémon
-    printf("Nome do Ataque: %s\n", atk.name);
-    printf("Pode base: %d\n", atk.power);
-    printf("Acuarcia: %f\n", atk.accuracy);
-    printf("Classe: %c\n\n", atk.class);
+    printf("Nome do Ataque: %s\n", pkdex[pkdex_index].attack[atk_index].name);
+    printf("Poder base: %d\n", pkdex[pkdex_index].attack[atk_index].power);
+    printf("Acuracia: %f\n", pkdex[pkdex_index].attack[atk_index].accuracy);
+    printf("Classe: %c\n\n", pkdex[pkdex_index].attack[atk_index].class);
 };
