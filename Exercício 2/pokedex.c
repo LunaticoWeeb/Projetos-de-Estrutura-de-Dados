@@ -1,3 +1,7 @@
+/*
+bug: não está registrando os Pokémons corretamente, só funcionam com 1.
+*/
+
 #include <stdio.h>
 #include <string.h>
 
