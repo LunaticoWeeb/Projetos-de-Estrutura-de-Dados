@@ -15,3 +15,9 @@
  #### Resolvendo:
  **Solução 1:** mudar de `++` para `+= 1`.
  **Resultado:** funcionou!
+
+## Bug 2:
+ Não está funcionando o registro/acesso de ataques
+ ### Tentativa 1:
+ **Ideia:** pode ser a simplificação de `pkdex[pkdex_index].attack[atk_index]` > `atk` que esteja causando isso.
+ **Solução:** `atk` > `pkdex[pkdex_index].attack[atk_index]`

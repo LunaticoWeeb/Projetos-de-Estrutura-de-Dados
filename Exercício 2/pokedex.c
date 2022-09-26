@@ -25,9 +25,9 @@ struct pokemon_t{
 };
 
 void registrate(int *size, struct pokemon_t *pkdex);
-void new_attack();
+void new_attack(struct pokemon_t *pkdex);
 void print_pokemon(struct pokemon_t *pkdex);
-void print_atk();
+void print_atk(struct pokemon_t *pkdex);
 
 #define CLOSE 0
 
@@ -43,16 +43,15 @@ int main(){
         switch (key){
             case 1:
                 registrate(&size_pkdex, &pokedex[0]);
-                printf("tamanho: %d\n", size_pkdex); //teste 1
                 break;
             case 2:
-                //new_attack();
+                new_attack(&pokedex[0]);
                 break;
             case 3:
                 print_pokemon(&pokedex[0]);
                 break;
             case 4:
-                //print_atk();
+                print_atk(&pokedex[0]);
                 break;
             case 0:
                 break;
@@ -86,16 +85,16 @@ void registrate(int *size, struct pokemon_t *pkdex){
     strcpy(pkdex[*size].type_secondary, pkm_type2);
     pkdex[*size].attribute = pkm_attributes;
     pkdex[*size].attack[4] = pkm_atks[4];
-    *size += 1; //aumenta indicador e ocupação da Pokedex
+    *size += 1; //aumenta indicador de ocupação da Pokedex
 };
 
 void print_pokemon(struct pokemon_t *pkdex){
     //recebe index
     int pkdex_index;
-    struct pokemon_t pkm;
     scanf("%d", &pkdex_index);
 
     //acha Pokémon
+    struct pokemon_t pkm;
     pkm = pkdex[pkdex_index];
 
     //imprime info
@@ -111,6 +110,49 @@ void print_pokemon(struct pokemon_t *pkdex){
     printf("\tVelocidade: %d\n\n", pkm.attribute.speed);
 };
 
-void new_attack(){};
+void new_attack(struct pokemon_t *pkdex){
+    //recebe dados do Pokémon
+    int pkdex_index, atk_index;
+    scanf("%d", &pkdex_index);
+    scanf("%d", &atk_index);
 
-void print_atk(){};
+    //acessa Pokémon e ataque
+    struct pokemon_t pkm;
+    struct attack_t atk;
+    pkm = pkdex[pkdex_index];
+    atk = pkm.attack[atk_index];
+
+    //recebe dados do ataque
+    char name_atk[20], class_atk;
+    int power_atk;
+    float accuracy_atk;
+    scanf("%s", name_atk);
+    scanf("%d", &power_atk);
+    scanf("%f", &accuracy_atk);
+    scanf("%c", &class_atk);
+
+    //registra ataque
+    strcpy(atk.name, name_atk);
+    atk.power = power_atk;
+    atk.accuracy = accuracy_atk;
+    atk.class = class_atk;
+};
+
+void print_atk(struct pokemon_t *pkdex){
+    //recebe dados do Pokémon
+    int pkdex_index, atk_index;
+    scanf("%d", &pkdex_index);
+    scanf("%d", &atk_index);
+
+    //acessa dados do Pokémon
+    struct pokemon_t pkm;
+    struct attack_t atk;
+    pkm = pkdex[pkdex_index];
+    atk = pkm.attack[atk_index];
+
+    //imprime dados do Pokémon
+    printf("Nome do Ataque: %s\n", atk.name);
+    printf("Pode base: %d\n", atk.power);
+    printf("Acuarcia: %f\n", atk.accuracy);
+    printf("Classe: %c\n\n", atk.class);
+};
