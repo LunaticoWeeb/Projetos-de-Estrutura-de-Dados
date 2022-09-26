@@ -26,7 +26,7 @@ struct pokemon_t{
 
 void registrate(int *size, struct pokemon_t *pkdex);
 void new_attack();
-void print_pokemon(struct pokemon_t pkdex[151]);
+void print_pokemon(struct pokemon_t *pkdex);
 void print_atk();
 
 #define CLOSE 0
@@ -43,12 +43,13 @@ int main(){
         switch (key){
             case 1:
                 registrate(&size_pkdex, &pokedex[0]);
+                printf("tamanho: %d\n", size_pkdex); //teste 1
                 break;
             case 2:
                 //new_attack();
                 break;
             case 3:
-                print_pokemon(pokedex);
+                print_pokemon(&pokedex[0]);
                 break;
             case 4:
                 //print_atk();
@@ -85,10 +86,10 @@ void registrate(int *size, struct pokemon_t *pkdex){
     strcpy(pkdex[*size].type_secondary, pkm_type2);
     pkdex[*size].attribute = pkm_attributes;
     pkdex[*size].attack[4] = pkm_atks[4];
-    *size++; //aumenta indicador e ocupação da Pokedex
+    *size += 1; //aumenta indicador e ocupação da Pokedex
 };
 
-void print_pokemon(struct pokemon_t pkdex[151]){
+void print_pokemon(struct pokemon_t *pkdex){
     //recebe index
     int pkdex_index;
     struct pokemon_t pkm;
