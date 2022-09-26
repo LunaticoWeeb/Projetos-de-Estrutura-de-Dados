@@ -1,0 +1,4 @@
+bug: não está registrando ou acessando os pokemons corretamente.
+tentativa 1:
+    ideia: pode ser um problema no acesso.
+    solução: passagem de referência do vetor.
