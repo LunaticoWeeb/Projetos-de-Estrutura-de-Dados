@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/lunatico_weeb/Disciplinas/Projetos-EdD/Exercício 2/Final",
+            "binaryPath": "/home/lunatico_weeb/Disciplinas/Projetos-EdD/Exercício 2/Final/pokedex",
+            "binaryArgs": []
+        }
+    ]
+}
