@@ -3,9 +3,9 @@
 ## Objetivo
  Criar um catálogo capaz de:
  1. Armazenar informações de um jogo:
-   - Nome
-   - Empresa Produtora
-   - Ano de Lançamento
+      - Nome
+      - Empresa Produtora
+      - Ano de Lançamento
  2. Buscar por jogos lançados em um determinado ano.
  3. Buscar por jogos criados por uma determinada produtora.
 
@@ -14,9 +14,9 @@
     - **Nome**
     - **Produtora**
     - **Ano** 
- Depoi de achar um `F`, ele espera o próximo caractere.
- 2. `A` corresponde a uma busca por **Ano**.
- 3. `B` corresponde a uma busca por **Empresa Produtora**.
+ 2. Depois de achar um `F`, ele espera o próximo caractere.
+ 3. `A` corresponde a uma busca por **Ano**.
+ 4. `B` corresponde a uma busca por **Empresa Produtora**.
  Obs: Caso não ache nenhum jogo, ele deve retornar `Nada encontrado`.
  ### Exemplo `input`:
  ```
