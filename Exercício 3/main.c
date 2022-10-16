@@ -1,14 +1,13 @@
 #include "jogos.h"
+#include "util.h"
 
 #include <stdio.h>
 #include <string.h>
 
 int main(){
     JOGO *jogo;
-    char nome[] = "Nome";
-    char empresa[] = "Empresa";
-    int ano = 2020;
-    jogo = registrar(nome, empresa, ano);
+
+    jogo = entrada();
 
     imprimir_jogo(jogo);
     return 0;

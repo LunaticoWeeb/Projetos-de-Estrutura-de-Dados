@@ -1,9 +1,12 @@
 #ifndef JOGO_H
 #define JOGO_H
 
+#include "util.h"
+
 typedef struct jogo_t JOGO;
 
-JOGO *registrar(char nome[256], char empresa[256], int ano);
+JOGO *registrar(const char *nome, const char *empresa, int ano);
+JOGO *entrada();
 void imprimir_jogo(JOGO *jogo);
 
 #endif //JOGO_H
