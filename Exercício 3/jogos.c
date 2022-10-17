@@ -19,10 +19,10 @@ JOGO *registrar(const char *nome, const char *empresa, int ano){
     return jogo;
 };
 
-JOGO *entrada(){
+JOGO *entrada(char *nome_jogo){
     JOGO jogo;
 
-    strcpy(jogo.nome, readLine());
+    strcpy(jogo.nome, nome_jogo);
     strcpy(jogo.empresa, readLine());
 
     scanf("%d", &(jogo.ano));
@@ -31,7 +31,11 @@ JOGO *entrada(){
 };
 
 void imprimir_jogo(JOGO *jogo){
+    if (jogo == NULL){
+        printf("\nNada encontrado");
+    } else {
     printf("\nJogo %s", jogo->nome); 
     printf("\nEmpresa %s", jogo->empresa); 
     printf("\nAno %d\n", jogo->ano); 
+    }
 }

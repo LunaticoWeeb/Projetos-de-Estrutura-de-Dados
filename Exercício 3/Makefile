@@ -1,9 +1,9 @@
-UTIL=jogos.c util.c
+UTIL=catalogo.c jogos.c util.c 
 MAIN=main.c
 BINARY=catalogo
 
 all:
-	gcc -Wall -Werror -g $(UTIL) $(MAIN) -o $(BINARY)
+	gcc -Wall -g $(UTIL) $(MAIN) -o $(BINARY)
 
 run:
 	./$(BINARY)

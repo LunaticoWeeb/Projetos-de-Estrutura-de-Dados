@@ -5,5 +5,10 @@
             "binaryPath": "/home/lunatico_weeb/Disciplinas/Estrutura de Dados/Projetos-de-Estrutura-de-Dados/Exercício 3/catalogo",
             "binaryArgs": []
         }
-    ]
+    ],
+    "files.associations": {
+        "jogos.h": "c",
+        "stdio.h": "c",
+        "catalogo.h": "c"
+    }
 }
