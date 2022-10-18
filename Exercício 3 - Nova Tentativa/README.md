@@ -1,4 +1,4 @@
-# Catálogo de Jogos - Incompleto
+# Catálogo de Jogos
 
 ## Objetivo
  Criar um catálogo capaz de:
