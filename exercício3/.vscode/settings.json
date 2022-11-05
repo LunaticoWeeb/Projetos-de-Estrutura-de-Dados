@@ -1,5 +1,13 @@
 {
     "files.associations": {
-        "stdio.h": "c"
-    }
+        "stdio.h": "c",
+        "util.h": "c"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/lunatico_weeb/Disciplinas/Estrutura de Dados/Projetos-de-Estrutura-de-Dados/exercício3",
+            "binaryPath": "/home/lunatico_weeb/Disciplinas/Estrutura de Dados/Projetos-de-Estrutura-de-Dados/exercício3/catalogo",
+            "binaryArgs": []
+        }
+    ]
 }

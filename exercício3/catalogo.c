@@ -29,7 +29,10 @@ void catalogar(CATALOGO *catalogo, JOGO *jogo){
 
 CATALOGO catalogando(){
     CATALOGO catalogo;
+    catalogo.total_jogos = 0;
+    
     char *nome_jogo;
+
     do{
         nome_jogo = readLine();
         if(strcmp(nome_jogo, "F") == 0) continue;
