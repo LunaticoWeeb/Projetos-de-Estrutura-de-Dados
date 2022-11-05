@@ -1,22 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Util.h"
-
-void boolean_print(boolean bool)
-{
-    if(bool == TRUE)
-    {
-        printf("TRUE\n");
-    }
-    else if(bool == FALSE)
-    {
-        printf("FALSE\n");
-    }
-    else
-    {
-        printf("ERRO\n");
-    }
-}
+#include "util.h"
 
 char *readLine() {
     char *string = NULL;

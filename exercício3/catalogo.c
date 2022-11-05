@@ -3,13 +3,13 @@
 #include <string.h>
 
 #include "catalogo.h"
-#include "jogos.h"
+#include "jogo.h"
 #include "util.h"
 
 struct catalogo_t{
     JOGO **jogo;
     int total_jogos;
-}; 
+};
 
 struct jogo_t{
     char nome[256];
@@ -30,12 +30,12 @@ void catalogar(CATALOGO *catalogo, JOGO *jogo){
 CATALOGO catalogando(){
     CATALOGO catalogo;
     char *nome_jogo;
-    do{ 
+    do{
         nome_jogo = readLine();
         if(strcmp(nome_jogo, "F") == 0) continue;
         JOGO *novoJogo = entrada(nome_jogo);
         catalogar(&catalogo, novoJogo);
-    } while(strcmp(nome_jogo, "F") != 0);
+    } while (strcmp(nome_jogo, "F") != 0);
 
     char ch;
     ch = getchar();
@@ -52,6 +52,7 @@ CATALOGO catalogando(){
         }
         ch = getchar();
     }
+
     return catalogo;
 }
 
