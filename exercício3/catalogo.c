@@ -20,63 +20,73 @@ struct jogo_t{
 void catalogar(CATALOGO *catalogo, JOGO *jogo){
     if (catalogo->total_jogos == 0){
         catalogo->jogo = malloc(sizeof(JOGO*));
-        catalogo->total_jogos++;
     } else {
         catalogo->jogo = realloc(catalogo->jogo, (catalogo->total_jogos*sizeof(JOGO*)));
-        catalogo->total_jogos++;
     }
+    catalogo->jogo[catalogo->total_jogos] = jogo;
+    catalogo->total_jogos++;
 }
 
-CATALOGO catalogando(){
+void catalogando(){
     CATALOGO catalogo;
     catalogo.total_jogos = 0;
     
     char *nome_jogo;
+    char *empresa_jogo;
+    int ano_jogo;
 
     do{
         nome_jogo = readLine();
         if(strcmp(nome_jogo, "F") == 0) continue;
-        JOGO *novoJogo = entrada(nome_jogo);
+        empresa_jogo = readLine();
+        scanf("%d%*c ", &ano_jogo);
+        JOGO *novoJogo = registrar(nome_jogo, empresa_jogo, ano_jogo);
         catalogar(&catalogo, novoJogo);
     } while (strcmp(nome_jogo, "F") != 0);
 
     char ch;
-    ch = getchar();
+    scanf("%c \n", &ch);
 
-    while(ch != '\n'){
+    do {
         if(ch == 'A'){
             int ano;
-            scanf("%d", &ano);
-            imprimir_jogo(busca_ano(ano, catalogo));
+            scanf("%d%*c", &ano);
+            busca_ano(ano, catalogo);
+            scanf("%c \n", &ch);
         } else if(ch == 'E'){
-            busca_empresa(readLine(),  catalogo);
-        } else if(ch == 'F'){
-            break;
-        }
-        ch = getchar();
-    }
-
-    return catalogo;
+            char *empresa_buscada = readLine();
+            busca_empresa(empresa_buscada, catalogo);
+            scanf("%c \n", &ch);
+        } else if(ch == 'F') continue;
+    } while(ch != 'F');
 }
 
-JOGO *busca_ano(int ano, CATALOGO catalogo){
+void busca_ano(int ano, CATALOGO catalogo){
+    int flag = 0;
     for(int i = 0; i < catalogo.total_jogos; i++){
         JOGO *jogo =  (catalogo.jogo)[i];
         int ano_jogo = jogo->ano;
         if(ano_jogo == ano){
-            return catalogo.jogo[i];
+            flag++;
+            imprimir_jogo(jogo);
         }
     }
-    return NULL;
+    if (flag == 0) {
+        imprimir_jogo(NULL);
+    }
 }
 
-JOGO *busca_empresa(char *nome, CATALOGO catalogo){
+void busca_empresa(const char *nome, CATALOGO catalogo){
+    int flag = 0;
     for(int i = 0; i < catalogo.total_jogos; i++){
         JOGO *jogo =  (catalogo.jogo)[i];
         char *empresa_jogo = jogo->empresa;
         if(strcmp(empresa_jogo, nome) == 0){
-            return catalogo.jogo[i];
+            flag++;
+            imprimir_jogo(jogo);
         }
     }
-    return NULL;
+    if (flag == 0) {
+        imprimir_jogo(NULL);
+    }
 }

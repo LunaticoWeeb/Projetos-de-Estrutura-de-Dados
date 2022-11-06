@@ -11,7 +11,6 @@ struct catalogo_t{
 }; 
 
 int main(){
-    CATALOGO catalogo_main;
-    catalogo_main = catalogando();
+    catalogando();
     return 0;
 }

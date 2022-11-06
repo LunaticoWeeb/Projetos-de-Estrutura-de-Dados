@@ -22,22 +22,10 @@ JOGO *registrar(const char *nome, const char *empresa, int ano){
     return jogo;
 };
 
-JOGO *entrada(char *nome_jogo){
-    JOGO jogo;
-
-    strcpy(jogo.nome, nome_jogo);
-    strcpy(jogo.empresa, readLine());
-    scanf("%d", &(jogo.ano));
-
-    return registrar(jogo.nome, jogo.empresa, jogo.ano);
-};
-
 void imprimir_jogo(JOGO *jogo){
     if (jogo == NULL){
-        printf("\nNada encontrado");
+        printf("Nada encontrado\n");
     } else {
-        printf("\nJogo %s", jogo->nome);
-        printf("\nEmpresa %s", jogo->empresa);
-        printf("\nAno %d", jogo->ano);
+        printf("%s\n", jogo->nome);
     }
 }

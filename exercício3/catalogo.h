@@ -8,8 +8,8 @@ typedef struct catalogo_t CATALOGO;
 typedef struct jogo_t JOGO;
 
 void catalogar(CATALOGO *catalogo, JOGO *jogo);
-CATALOGO catalogando();
-JOGO *busca_ano(int ano, CATALOGO catalogo);
-JOGO *busca_empresa(char *nome, CATALOGO catalogo);
+void catalogando();
+void busca_ano(int ano, CATALOGO catalogo);
+void busca_empresa(const char *nome, CATALOGO catalogo);
 
 #endif //CATALOGO_H
