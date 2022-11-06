@@ -45,20 +45,18 @@ void catalogando(){
     } while (strcmp(nome_jogo, "F") != 0);
 
     char ch;
-    scanf("%c \n", &ch);
 
-    do {
+    while(ch != 'F'){
+        scanf("%c \n", &ch);
         if(ch == 'A'){
             int ano;
             scanf("%d%*c", &ano);
             busca_ano(ano, catalogo);
-            scanf("%c \n", &ch);
         } else if(ch == 'E'){
             char *empresa_buscada = readLine();
             busca_empresa(empresa_buscada, catalogo);
-            scanf("%c \n", &ch);
-        } else if(ch == 'F') continue;
-    } while(ch != 'F');
+        }
+    };
 }
 
 void busca_ano(int ano, CATALOGO catalogo){
