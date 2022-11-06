@@ -44,15 +44,15 @@ void catalogando(){
         catalogar(&catalogo, novoJogo);
     } while (strcmp(nome_jogo, "F") != 0);
 
-    char ch;
+    char *ch = "X";
 
-    while(ch != 'F'){
-        scanf("%c \n", &ch);
-        if(ch == 'A'){
+    while(strcmp(ch, "F") != 0){
+        ch = readLine();
+        if(strcmp(ch, "A") == 0){
             int ano;
             scanf("%d%*c", &ano);
             busca_ano(ano, catalogo);
-        } else if(ch == 'E'){
+        } else if(strcmp(ch, "E") == 0){
             char *empresa_buscada = readLine();
             busca_empresa(empresa_buscada, catalogo);
         }
